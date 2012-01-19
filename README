@@ -1,0 +1,8 @@
+I made this program to parse Microsoft Money import file which can be downloaded from Mitsubishi Tokyo UFJ online banking service.
+
+sample:
+require "ms_money_parser"
+file = "./1234567890.ofx"
+data = MsMoney::Parser.parse(file)
+p data.meta_data
+p data.transactions
