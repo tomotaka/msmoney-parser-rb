@@ -1,8 +1,14 @@
-I made this program to parse Microsoft Money import file which can be downloaded from Mitsubishi Tokyo UFJ online banking service.
+I made this program to parse Microsoft Money import file which can be downloaded from Mitsubishi Tokyo UFJ online banking service.(I'm Japanese and I don't know MUFG Direct service is international service...)
 
 sample:
 require "ms_money_parser"
+
+# parse
 file = "./1234567890.ofx"
 data = MsMoney::Parser.parse(file)
 p data.meta_data
 p data.transactions
+
+# you can use data on Excel with CSV format
+csv_output_file = "./converted.csv"
+MsMoney::SimpleCsvDumper.dump(csv_output_file, data)
